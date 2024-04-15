@@ -6,6 +6,7 @@ const LOBECHAT_URL = process.env.LOBECHAT_URL;
 const LOBECHAT_ACCESS_CODE = process.env.LOBECHAT_ACCESS_CODE;
 const LOBECHAT_WEBRTC_CHANNEL_NAME = process.env.LOBECHAT_WEBRTC_CHANNEL_NAME;
 const LOBECHAT_WEBRTC_CHANNEL_PASSWORD = process.env.LOBECHAT_WEBRTC_CHANNEL_PASSWORD;
+const REFRESH_INTERVAL = process.env.REFRESH_INTERVAL ? parseInt(process.env.REFRESH_INTERVAL) : 60 * 5;
 
 if (!LOBECHAT_URL) throw new Error("LOBECHAT_URL not set");
 if (!BROWSER_USER_DATA_DIR) throw new Error("BROWSER_USER_DATA_DIR not set");
@@ -108,5 +109,5 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   setInterval(async () => {
     await page.reload()
     console.log('Page reloaded.')
-  }, 60 * 500)
+  }, REFRESH_INTERVAL * 1000)
 })();
