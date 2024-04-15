@@ -20,6 +20,8 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   //=========================================
   const browser = await puppeteer.launch({
     userDataDir: BROWSER_USER_DATA_DIR,
+    headless: "new",
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
   //=========================================
