@@ -11,7 +11,7 @@ Deployment requires some environment variables:
 | BROWSER_USER_DATA_DIR            | Yes      |                           | ./data                    |
 | LOBECHAT_URL                     | No       | https://chat.lobehub.com/ | https://chat.example.com/ |
 | LOBECHAT_ACCESS_CODE             | No       | (None)                    | password                  |
-| LOBECHA_SERVER_NAME              | No       | Sync Server               | Cloud Server              |
+| LOBECHAT_SERVER_NAME             | No       | Sync Server               | Cloud Server              |
 | LOBECHAT_WEBRTC_CHANNEL_NAME     | Yes      |                           | my_channel                |
 | LOBECHAT_WEBRTC_CHANNEL_PASSWORD | Yes      |                           | my_password               |
 | REFRESH_INTERVAL                 | No       | 300                       | 60                        |

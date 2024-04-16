@@ -4,7 +4,7 @@ import path from 'path';
 const BROWSER_USER_DATA_DIR = process.env.BROWSER_USER_DATA_DIR;
 const LOBECHAT_URL = process.env.LOBECHAT_URL ?? "https://chat.lobehub.com/";
 const LOBECHAT_ACCESS_CODE = process.env.LOBECHAT_ACCESS_CODE;
-const LOBECHA_SERVER_NAME = process.env.LOBECHA_SERVER_NAME ?? "Sync Server";
+const LOBECHAT_SERVER_NAME = process.env.LOBECHAT_SERVER_NAME ?? "Sync Server";
 const LOBECHAT_WEBRTC_CHANNEL_NAME = process.env.LOBECHAT_WEBRTC_CHANNEL_NAME;
 const LOBECHAT_WEBRTC_CHANNEL_PASSWORD = process.env.LOBECHAT_WEBRTC_CHANNEL_PASSWORD;
 const REFRESH_INTERVAL = process.env.REFRESH_INTERVAL !== undefined ? parseInt(process.env.REFRESH_INTERVAL) : 60 * 5;
@@ -54,7 +54,7 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   await new Promise((resolve) => setTimeout(resolve, 500))
   await page.$eval('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > span > input', el => el.value = '');
   await new Promise((resolve) => setTimeout(resolve, 500))
-  await page.type('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > span > input', LOBECHA_SERVER_NAME)
+  await page.type('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > span > input', LOBECHAT_SERVER_NAME)
   await new Promise((resolve) => setTimeout(resolve, 500))
   await page.click('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > span')
   await new Promise((resolve) => setTimeout(resolve, 500))
