@@ -16,6 +16,10 @@ Deployment requires some environment variables:
 | LOBECHAT_WEBRTC_CHANNEL_PASSWORD | Yes      |                           | my_password               |
 | REFRESH_INTERVAL                 | No       | 300                       | 60                        |
 
+> [!TIP]
+> By default, lobe-chat-sync-server refreshes the application page every 5 minutes to prevent potential WebRTC connection and synchronization exceptions.
+> The refresh interval can be customized by `REFRESH_INTERVAL`, setting it to 0 to disable page auto refresh.
+
 > [!WARNING]
 > lobe-chat-sync-server is only designed for synchronization of multiple devices by a single user, please pay attention to your own data privacy.
 > If necessary, a separate instance should be deployed for each user and isolated using a different path `BROWSER_USER_DATA_DIR`.

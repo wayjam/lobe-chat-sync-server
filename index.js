@@ -7,7 +7,7 @@ const LOBECHAT_ACCESS_CODE = process.env.LOBECHAT_ACCESS_CODE;
 const LOBECHA_SERVER_NAME = process.env.LOBECHA_SERVER_NAME ?? "Sync Server";
 const LOBECHAT_WEBRTC_CHANNEL_NAME = process.env.LOBECHAT_WEBRTC_CHANNEL_NAME;
 const LOBECHAT_WEBRTC_CHANNEL_PASSWORD = process.env.LOBECHAT_WEBRTC_CHANNEL_PASSWORD;
-const REFRESH_INTERVAL = process.env.REFRESH_INTERVAL ? parseInt(process.env.REFRESH_INTERVAL) : 60 * 5;
+const REFRESH_INTERVAL = process.env.REFRESH_INTERVAL !== undefined ? parseInt(process.env.REFRESH_INTERVAL) : 60 * 5;
 
 if (!BROWSER_USER_DATA_DIR) throw new Error("BROWSER_USER_DATA_DIR not set");
 if (!LOBECHAT_WEBRTC_CHANNEL_NAME) throw new Error("LOBECHAT_WEBRTC_CHANNEL_NAME not set");
@@ -108,8 +108,10 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   //=========================================
   //        Reload page regularly
   //=========================================
-  setInterval(async () => {
-    await page.reload()
-    console.log('Page reloaded.')
-  }, REFRESH_INTERVAL * 1000)
+  if (REFRESH_INTERVAL > 0) {
+    setInterval(async () => {
+      await page.reload()
+      console.log('Page reloaded.')
+    }, REFRESH_INTERVAL * 1000)
+  }
 })();
