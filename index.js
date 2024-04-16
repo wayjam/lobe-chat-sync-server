@@ -30,6 +30,7 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   const page = await browser.newPage();
 
   await page.goto(LOBECHAT_URL);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   await page.setViewport({width: 1920, height: 1080});
 
   //=========================================
@@ -37,6 +38,7 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   //=========================================
   if (LOBECHAT_ACCESS_CODE) {
     await page.goto(path.join(LOBECHAT_URL, '/settings/common'));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     await page.type('#password', LOBECHAT_ACCESS_CODE)
     await new Promise((resolve) => setTimeout(resolve, 500))
@@ -48,6 +50,7 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   //        Setup WebRTC
   //=========================================
   await page.goto(path.join(LOBECHAT_URL, '/settings/sync'));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // webrtc_clientName
   await page.click('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div')
@@ -103,6 +106,7 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   console.log('WebRTC sync enabled.')
 
   await page.goto(path.join(LOBECHAT_URL, '/chat'))
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   console.log('Page initialized.')
 
