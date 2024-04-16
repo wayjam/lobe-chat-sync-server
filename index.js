@@ -2,13 +2,12 @@ import puppeteer from 'puppeteer';
 import path from 'path';
 
 const BROWSER_USER_DATA_DIR = process.env.BROWSER_USER_DATA_DIR;
-const LOBECHAT_URL = process.env.LOBECHAT_URL;
+const LOBECHAT_URL = process.env.LOBECHAT_URL ?? "https://chat.lobehub.com/";
 const LOBECHAT_ACCESS_CODE = process.env.LOBECHAT_ACCESS_CODE;
 const LOBECHAT_WEBRTC_CHANNEL_NAME = process.env.LOBECHAT_WEBRTC_CHANNEL_NAME;
 const LOBECHAT_WEBRTC_CHANNEL_PASSWORD = process.env.LOBECHAT_WEBRTC_CHANNEL_PASSWORD;
 const REFRESH_INTERVAL = process.env.REFRESH_INTERVAL ? parseInt(process.env.REFRESH_INTERVAL) : 60 * 5;
 
-if (!LOBECHAT_URL) throw new Error("LOBECHAT_URL not set");
 if (!BROWSER_USER_DATA_DIR) throw new Error("BROWSER_USER_DATA_DIR not set");
 if (!LOBECHAT_WEBRTC_CHANNEL_NAME) throw new Error("LOBECHAT_WEBRTC_CHANNEL_NAME not set");
 if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_PASSWORD not set");
