@@ -58,6 +58,7 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   await new Promise((resolve) => setTimeout(resolve, 500))
   await page.click('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > span')
   await new Promise((resolve) => setTimeout(resolve, 500))
+  console.log('Server name set.')
 
   // webrtc_channelName
   const webrtcChannelNameInput = await page.$('#sync_webrtc_channelName');
