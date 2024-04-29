@@ -115,8 +115,17 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   //=========================================
   if (REFRESH_INTERVAL > 0) {
     setInterval(async () => {
-      await page.reload()
-      console.log('Page reloaded.')
+      try {
+        await page.goto(path.join(LOBECHAT_URL, '/chat'))
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        await page.reload()
+
+        console.log('Page reloaded.')
+      } catch (error) {
+        console.warn("Failed to reload page.")
+        console.error(error)
+      }
     }, REFRESH_INTERVAL * 1000)
   }
 })();
