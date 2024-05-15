@@ -53,13 +53,13 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // webrtc_clientName
-  await page.click('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div')
+  await page.click('body > div.ant-app > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div')
   await new Promise((resolve) => setTimeout(resolve, 500))
-  await page.$eval('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > span > input', el => el.value = '');
+  await page.$eval('body > div.ant-app > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > span > input', el => el.value = '');
   await new Promise((resolve) => setTimeout(resolve, 500))
-  await page.type('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > span > input', LOBECHAT_SERVER_NAME)
+  await page.type('body > div.ant-app > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > span > input', LOBECHAT_SERVER_NAME)
   await new Promise((resolve) => setTimeout(resolve, 500))
-  await page.click('body > div.ant-app > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-center > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > span')
+  await page.click('body > div.ant-app > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div > div > div.layoutkit-flexbox > div > article')
   await new Promise((resolve) => setTimeout(resolve, 500))
   console.log('Server name set.')
 
