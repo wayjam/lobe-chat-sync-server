@@ -18,3 +18,5 @@ RUN apt-get update && apt-get install gnupg wget -y && \
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . .
+
+CMD ["node", "index.js"]

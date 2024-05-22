@@ -23,3 +23,37 @@ Deployment requires some environment variables:
 > [!WARNING]
 > lobe-chat-sync-server is only designed for synchronization of multiple devices by a single user, please pay attention to your own data privacy.
 > If necessary, a separate instance should be deployed for each user and isolated using a different path `BROWSER_USER_DATA_DIR`.
+
+## Docker
+
+```sh
+docker run -d \
+  -e BROWSER_USER_DATA_DIR=./data \
+  -e LOBECHAT_WEBRTC_CHANNEL_NAME=my_channel \
+  -e LOBECHAT_WEBRTC_CHANNEL_PASSWORD=my_password \
+  -e LOBECHAT_URL=https://chat.example.com/ \
+  -e LOBECHAT_ACCESS_CODE=password \
+  -e LOBECHAT_SERVER_NAME="Cloud Server" \
+  -e REFRESH_INTERVAL=60 \
+  ghcr.io/wayjam/lobe-chat-sync-server:latest
+```
+
+## Docker Compose
+
+```yaml
+version: "3.8"
+
+services:
+  lobechat-sync-server:
+    image: ghcr.io/wayjam/lobe-chat-sync-server:latest
+    environment:
+      - BROWSER_USER_DATA_DIR=./data
+      - LOBECHAT_WEBRTC_CHANNEL_NAME=my_channel
+      - LOBECHAT_WEBRTC_CHANNEL_PASSWORD=my_password
+      - LOBECHAT_URL=https://chat.example.com/
+      - LOBECHAT_ACCESS_CODE=password
+      - LOBECHAT_SERVER_NAME="Cloud Server"
+      - REFRESH_INTERVAL=60
+    volumes:
+      - ./data:/data
+```
