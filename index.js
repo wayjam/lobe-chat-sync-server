@@ -40,7 +40,7 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
     await page.goto(path.join(LOBECHAT_URL, '/settings/common'));
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    await page.type('#password', LOBECHAT_ACCESS_CODE)
+    await page.type('input[type=password]', LOBECHAT_ACCESS_CODE)
     await new Promise((resolve) => setTimeout(resolve, 500))
     console.log('Access code set.')
   }
@@ -53,7 +53,7 @@ if (!LOBECHAT_WEBRTC_CHANNEL_PASSWORD) throw new Error("LOBECHAT_WEBRTC_CHANNEL_
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // webrtc_clientName
-  await page.click('body > div.ant-app > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div')
+  await page.click('body > div.ant-app > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div.layoutkit-flexbox')
   await new Promise((resolve) => setTimeout(resolve, 500))
   await page.$eval('body > div.ant-app > div > div.layoutkit-flexbox > div.layoutkit-flexbox > div > div > div > div.layoutkit-flexbox > div.layoutkit-flexbox > span > input', el => el.value = '');
   await new Promise((resolve) => setTimeout(resolve, 500))
